@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Runtime.CompilerServices;
 using Microsoft.Extensions.ObjectPool;
 using API.Interfaces;
+using System.Threading.Tasks;
 
 namespace API.Controllers
 {

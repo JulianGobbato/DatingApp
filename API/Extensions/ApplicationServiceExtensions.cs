@@ -13,7 +13,7 @@ namespace API.Extensions
 {
     public static class ApplicationServiceExtensions
     {
-        public static IServiceCollection AddAplicationService(this IServiceCollection services, IConfiguration config){
+        public static IServiceCollection AddApplicationService(this IServiceCollection services, IConfiguration config){
             services.AddScoped<ITokenService, TokenServices>();
             services.AddDbContext<DataContext>(options =>{
                 options.UseSqlite(config.GetConnectionString("DefaultConnection"));
