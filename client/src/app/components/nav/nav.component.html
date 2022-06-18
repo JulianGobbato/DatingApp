@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
     <div class="container">
         <a class="navbar-brand" routerLink="/" routerLinkActive="active">DatingApp</a>
         <ul class="navbar-nav mr-auto">
@@ -19,7 +19,7 @@
                 Bienvenido {{User.username | titlecase}} 
             </button>
             <div class="dropdown-menu" *dropdownMenu>
-                <a class="dropdown-item"> Editar Perfil</a>
+                <a class="dropdown-item" routerLink="/member/edit"> Editar Perfil</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" (click)="logout()">Logout</a>
             </div>

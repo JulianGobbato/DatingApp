@@ -1,0 +1,60 @@
+<div class="row" *ngIf="member">
+    <div class="col-4">
+        <h1>Tu perfil</h1>
+    </div>
+    <div class="col-8">
+        <div class="alert alert-info" *ngIf="editForm.dirty">
+            <strong>Informacion:</strong> Los cambios no guardados se perderan
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <img src="{{member.photoUrl || './assets/user.png'}}" alt="{{member.knownAs}}" class="card-img-top img-thumbnail">
+            <div class="card-body">
+                <div>
+                    <strong>Ubicacion:</strong>
+                    <p>{{member.city}}, {{member.country}}</p>
+                </div>
+                <div>
+                    <strong>Age:</strong>
+                    <p>{{member.age}}</p>
+                </div>
+                <div>
+                    <strong>Ultima Actividad:</strong>
+                    <p>{{member.lastActive}}</p>
+                </div>
+                <div>
+                    <strong>Se unio en:</strong>
+                    <p>{{member.created}}</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button [disabled]="!editForm.dirty" form="editForm" type="submit" class="btn btn-success btn-block">Guardar Cambios</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-8">
+        <tabset class="member-tabset">
+            <tab heading='Editar Informacion'>
+                <form #editForm="ngForm" id="editForm" (ngSubmit)="updateMember()">
+                    <h4>Descripcion</h4>
+                    <textarea [(ngModel)]="member.introduction" class="form-control" name="introduction" rows="6"></textarea>
+                    <h4>Buscando</h4>
+                    <textarea [(ngModel)]="member.lookingFor" class="form-control mt-2" name="lookingFor" rows="6"></textarea>
+                    <h4>Interes</h4>
+                    <textarea [(ngModel)]="member.interests" class="form-control mt-2" name="interests" rows="6"></textarea>
+                    <h4>Detalles de Ubicacion</h4>
+                    <div class="form-inline">
+                        <label for="city">Ciudad: </label>
+                        <input [(ngModel)]="member.city" type="text" name="city" class="form-contro mx-2">
+                        <label for="country">Pais: </label>
+                        <input [(ngModel)]="member.country" type="text" name="country" class="form-contro mx-2">
+                    </div>
+                </form>
+            </tab>
+            <tab heading='Editar Fotos'>
+                <p>FALTA EL EDITOR DE FOTOS</p>
+            </tab>
+        </tabset>
+    </div>
+</div>
